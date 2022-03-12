@@ -9,6 +9,7 @@ import 'package:e_commerce/repo/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,11 +46,25 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Flutter E-commerce App',
-            theme: KlightTheme,
-            home: startWidget,
+          return ScreenUtilInit(
+            designSize: Size(392.72727272727275, 825.4545454545455),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            builder: () => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              builder: (context, widget) {
+                //add this line
+                ScreenUtil.setContext(context);
+                return MediaQuery(
+                  //Setting font does not change with system font size
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                  child: widget!,
+                );
+              },
+              title: 'Flutter E-commerce App',
+              theme: KlightTheme,
+              home: startWidget,
+            ),
           );
         },
       ),

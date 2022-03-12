@@ -8,6 +8,7 @@ import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -16,8 +17,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     AppCubit.get(context).getUserData();
     AppCubit.get(context).getHomeData();
     AppCubit.get(context).getCategoriesData();
@@ -33,7 +32,7 @@ class HomePage extends StatelessWidget {
               timeInSecForIosWeb: 3,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 16.0,
+              fontSize: 16.sp,
             );
           }
         }
@@ -60,11 +59,11 @@ class HomePage extends StatelessWidget {
                           .toList(),
                     ),
                     SizedBox(
-                      height: height * 0.015,
+                      height: 18.h,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.04,
+                        horizontal: 12.w,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,26 +71,24 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Categories',
                             style: TextStyle(
-                              fontSize: width * 0.05,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
                           SizedBox(
-                            height: height * 0.015,
+                            height: 8.h,
                           ),
                           CategoryItemBuilder(
-                            width: width,
-                            height: height,
                             data:
                                 AppCubit.get(context).categoryModel!.data.data,
                           ),
                           SizedBox(
-                            height: height * 0.015,
+                            height: 18.h,
                           ),
                           Text(
                             'Popular Products',
                             style: TextStyle(
-                              fontSize: width * 0.05,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -99,14 +96,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.015,
+                      height: 8.h,
                     ),
                     GridView.count(
                       physics: const NeverScrollableScrollPhysics(),
-                      childAspectRatio: width / (height * 1),
+                      childAspectRatio: 21.w / 30.h,
                       crossAxisCount: 2,
-                      crossAxisSpacing: width * 0.01,
-                      mainAxisSpacing: height * 0.015,
+                      crossAxisSpacing: 10.w,
+                      mainAxisSpacing: 14.h,
                       shrinkWrap: true,
                       children: List.generate(
                         AppCubit.get(context).homeModel!.data!.products.length,
@@ -148,7 +145,7 @@ class HomePage extends StatelessWidget {
               )
             : SpinKitFadingCube(
                 color: KdefaultColor,
-                size: 50.0,
+                size: 50.w,
               );
       },
     );

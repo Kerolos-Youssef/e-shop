@@ -9,14 +9,13 @@ import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
@@ -45,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                 timeInSecForIosWeb: 5,
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
-                fontSize: 16.0,
+                fontSize: 16.sp,
               );
             }
           }
@@ -57,11 +56,9 @@ class LoginScreen extends StatelessWidget {
               elevation: 0.0,
             ),
             body: Padding(
-              padding: EdgeInsetsDirectional.only(
-                start: width * 0.03,
-                end: width * 0.03,
-                top: height * 0.02,
-                bottom: height * 0.02,
+              padding: EdgeInsets.symmetric(
+                horizontal: 18.w,
+                vertical: 8.h,
               ),
               child: SingleChildScrollView(
                 child: Form(
@@ -73,28 +70,27 @@ class LoginScreen extends StatelessWidget {
                         'Sign In',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: width * 0.12,
+                          fontSize: 44.sp,
                           color: KdefaultColor[800],
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.02,
+                        height: 14.h,
                       ),
                       Text(
                         'Login to enjoy our hot offers',
                         style: TextStyle(
-                          fontSize: width * 0.06,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.w500,
                           color: KdefaultColor[300],
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.06,
+                        height: 70.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10.w,
                         ),
                         child: CustomTextFormField(
                           controller: LoginCubit.get(context).emailController,
@@ -117,12 +113,11 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.035,
+                        height: 10.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10.w,
                         ),
                         child: CustomTextFormField(
                           controller:
@@ -160,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.04,
+                        height: 15.h,
                       ),
                       state is! LoginLoadingState
                           ? CustomElevatedButton(
@@ -179,20 +174,20 @@ class LoginScreen extends StatelessWidget {
                               child: Text(
                                 'Login',
                                 style: TextStyle(
-                                  fontSize: width * 0.06,
+                                  fontSize: 30.sp,
                                   color: Colors.white,
                                   letterSpacing: 3,
                                 ),
                               ),
                               color: KdefaultColor,
-                              height: height * 0.078,
-                              borderRadius: 10,
+                              height: 58.h,
+                              borderRadius: 15.r,
                             )
                           : const Center(
                               child: CircularProgressIndicator(),
                             ),
                       SizedBox(
-                        height: height * 0.03,
+                        height: 18.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -200,11 +195,11 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Don\'t have an account?',
                             style: TextStyle(
-                              fontSize: width * 0.035,
+                              fontSize: 18.sp,
                             ),
                           ),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 8.w,
                           ),
                           TextButton(
                             onPressed: () {
@@ -217,7 +212,8 @@ class LoginScreen extends StatelessWidget {
                             child: Text(
                               'REGISTER',
                               style: TextStyle(
-                                fontSize: width * 0.035,
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.bold,
                                 letterSpacing: 1.8,
                               ),
                             ),

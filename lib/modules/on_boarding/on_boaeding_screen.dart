@@ -3,6 +3,7 @@ import 'package:e_commerce/network/local/cash_helper.dart';
 import 'package:e_commerce/shared/components/onboarding_item.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -10,8 +11,6 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     var pageController = PageController();
     bool isLast = false;
     void skipToLogin() async {
@@ -35,8 +34,8 @@ class OnBoardingScreen extends StatelessWidget {
               'SKIP',
               style: TextStyle(
                 fontWeight: FontWeight.w800,
-                fontSize: width * 0.045,
-                letterSpacing: 1.5,
+                fontSize: 25.sp,
+                letterSpacing: 1.6,
               ),
             ),
           ),
@@ -44,10 +43,10 @@ class OnBoardingScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(
-          width * 0.016,
-          height * 0.02,
-          width * 0.016,
-          height * 0.015,
+          12.w,
+          20.h,
+          12.w,
+          25.h,
         ),
         child: Column(
           children: [
@@ -69,7 +68,7 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: height * 0.038,
+              height: 20.h,
             ),
             Row(
               children: [
@@ -78,8 +77,8 @@ class OnBoardingScreen extends StatelessWidget {
                   count: Konboarding.length,
                   effect: SwapEffect(
                     activeDotColor: KdefaultColor,
-                    dotHeight: height * 0.014,
-                    dotWidth: width * 0.035,
+                    dotHeight: 8.h,
+                    dotWidth: 18.w,
                   ),
                   onDotClicked: (index) {
                     pageController.animateToPage(

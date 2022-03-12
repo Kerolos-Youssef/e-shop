@@ -1,24 +1,23 @@
 import 'package:e_commerce/models/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
 class CategoryItem extends StatelessWidget {
-  double width;
-  double height;
   DataModel data;
-  CategoryItem({required this.width, required this.data, required this.height});
+  CategoryItem({required this.data});
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(width * 0.02),
+        borderRadius: BorderRadius.circular(18.r),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: width * 0.02,
-          vertical: height * 0.02,
+          horizontal: 2.w,
+          vertical: 3.h,
         ),
         child: Row(
           children: [
@@ -26,16 +25,16 @@ class CategoryItem extends StatelessWidget {
               image: NetworkImage(
                 data.image,
               ),
-              width: width * 0.3,
-              height: height * 0.2,
+              width: 130.w,
+              height: 130.h,
             ),
             SizedBox(
-              width: width * 0.028,
+              width: 4.w,
             ),
             Text(
               data.name,
               style: TextStyle(
-                fontSize: width * 0.045,
+                fontSize: 19.sp,
                 color: KdefaultColor,
                 fontWeight: FontWeight.w900,
                 overflow: TextOverflow.ellipsis,
@@ -44,7 +43,7 @@ class CategoryItem extends StatelessWidget {
             const Spacer(),
             Icon(
               Icons.navigate_next,
-              size: width * 0.13,
+              size: 38.w,
             ),
           ],
         ),

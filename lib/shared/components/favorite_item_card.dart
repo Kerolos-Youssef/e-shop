@@ -1,5 +1,6 @@
 import 'package:e_commerce/models/favorites_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -17,18 +18,16 @@ class FavoriteItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 0.25,
+      height: 175.h,
       child: Card(
-        elevation: 8,
+        elevation: 6,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(width * 0.03),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: width * 0.022,
+            horizontal: 12.w,
           ),
           child: Row(
             children: [
@@ -39,18 +38,16 @@ class FavoriteItemCard extends StatelessWidget {
                     image: NetworkImage(
                       model.product.image,
                     ),
-                    width: width * 0.4,
-                    height: height * 0.2,
+                    width: 150.w,
+                    height: 160.h,
                   ),
                   if (model.product.discount != 0)
                     Container(
-                      padding: EdgeInsetsDirectional.only(
-                        start: width * 0.015,
-                        end: width * 0.015,
-                        top: height * 0.001,
-                        bottom: height * 0.001,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 1.w,
+                        vertical: 1.h,
                       ),
-                      width: width * 0.4,
+                      width: 160.w,
                       decoration: const BoxDecoration(
                         color: Colors.red,
                       ),
@@ -58,7 +55,7 @@ class FavoriteItemCard extends StatelessWidget {
                         'DISCOUNT',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: width * 0.032,
+                          fontSize: 11.sp,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.8,
@@ -68,19 +65,19 @@ class FavoriteItemCard extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                width: width * 0.02,
+                width: 5.w,
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: height * 0.014),
+                  padding: EdgeInsets.symmetric(vertical: 3.5.h),
                   child: Column(
                     children: [
                       Text(
                         model.product.name,
-                        maxLines: 2,
+                        maxLines: 3,
                         style: TextStyle(
                           overflow: TextOverflow.ellipsis,
-                          fontSize: width * 0.04,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
                           height: 2,
                         ),
@@ -94,18 +91,18 @@ class FavoriteItemCard extends StatelessWidget {
                               style: TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 color: Colors.grey[700],
-                                fontSize: width * 0.043,
+                                fontSize: 17.sp,
                               ),
                             ),
                           if (model.product.discount != 0)
                             SizedBox(
-                              width: width * 0.03,
+                              width: 10.w,
                             ),
                           Text(
                             model.product.price.round().toString(),
                             style: TextStyle(
                               color: KdefaultColor,
-                              fontSize: width * 0.043,
+                              fontSize: 17.sp,
                             ),
                           ),
                           const Spacer(),

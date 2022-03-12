@@ -6,6 +6,7 @@ import 'package:e_commerce/shared/components/custom_text_field.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Register extends StatelessWidget {
@@ -13,8 +14,6 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return BlocProvider(
       create: (context) => RegisterCubit(),
       child: BlocConsumer<RegisterCubit, RegisterStates>(
@@ -28,7 +27,7 @@ class Register extends StatelessWidget {
                 timeInSecForIosWeb: 5,
                 backgroundColor: Colors.green,
                 textColor: Colors.white,
-                fontSize: 16.0,
+                fontSize: 16.sp,
               );
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
@@ -48,7 +47,7 @@ class Register extends StatelessWidget {
               timeInSecForIosWeb: 5,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 16.0,
+              fontSize: 16.sp,
             );
           }
         },
@@ -62,11 +61,9 @@ class Register extends StatelessWidget {
               ),
             ),
             body: Padding(
-              padding: EdgeInsetsDirectional.only(
-                start: width * 0.03,
-                end: width * 0.03,
-                top: height * 0.02,
-                bottom: height * 0.02,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.w,
+                vertical: 14.h,
               ),
               child: SingleChildScrollView(
                 child: Form(
@@ -78,28 +75,27 @@ class Register extends StatelessWidget {
                         'Register',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: width * 0.12,
+                          fontSize: 44.sp,
                           color: KdefaultColor[800],
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.02,
+                        height: 14.h,
                       ),
                       Text(
                         'Register to enjoy our hot offers',
                         style: TextStyle(
-                          fontSize: width * 0.06,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.w500,
                           color: KdefaultColor[300],
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.06,
+                        height: 45.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 7.w,
                         ),
                         child: CustomTextFormField(
                           controller: RegisterCubit.get(context).nameController,
@@ -117,12 +113,11 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.013,
+                        height: 8.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 7.w,
                         ),
                         child: CustomTextFormField(
                           controller:
@@ -146,12 +141,11 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.013,
+                        height: 8.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 7.w,
                         ),
                         child: CustomTextFormField(
                           controller:
@@ -173,12 +167,11 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.013,
+                        height: 8.h,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: width * 0.03,
-                          end: width * 0.03,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 7.w,
                         ),
                         child: CustomTextFormField(
                           controller:
@@ -206,7 +199,7 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.04,
+                        height: 20.h,
                       ),
                       state is! RegisterLoadingState
                           ? CustomElevatedButton(
@@ -231,14 +224,14 @@ class Register extends StatelessWidget {
                               child: Text(
                                 'Register',
                                 style: TextStyle(
-                                  fontSize: width * 0.06,
+                                  fontSize: 30.sp,
                                   color: Colors.white,
                                   letterSpacing: 3,
                                 ),
                               ),
                               color: KdefaultColor,
-                              height: height * 0.078,
-                              borderRadius: 10,
+                              height: 58.h,
+                              borderRadius: 15.r,
                             )
                           : const Center(
                               child: CircularProgressIndicator(),

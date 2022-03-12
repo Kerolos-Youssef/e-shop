@@ -1,5 +1,6 @@
 import 'package:e_commerce/models/search_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -16,18 +17,16 @@ class SearchItemCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 0.25,
+      height: 170.h,
       child: Card(
-        elevation: 8,
+        elevation: 6,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(width * 0.03),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: width * 0.022,
+            horizontal: 15.w,
           ),
           child: Row(
             children: [
@@ -35,23 +34,23 @@ class SearchItemCard extends StatelessWidget {
                 image: NetworkImage(
                   model.image,
                 ),
-                width: width * 0.4,
-                height: height * 0.2,
+                width: 160.w,
+                height: 140.h,
               ),
               SizedBox(
-                width: width * 0.02,
+                width: 15.w,
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: height * 0.014),
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Column(
                     children: [
                       Text(
                         model.name,
-                        maxLines: 2,
+                        maxLines: 3,
                         style: TextStyle(
                           overflow: TextOverflow.ellipsis,
-                          fontSize: width * 0.04,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           height: 2,
                         ),
@@ -63,7 +62,7 @@ class SearchItemCard extends StatelessWidget {
                             model.price.round().toString(),
                             style: TextStyle(
                               color: KdefaultColor,
-                              fontSize: width * 0.043,
+                              fontSize: 18.sp,
                             ),
                           ),
                         ],

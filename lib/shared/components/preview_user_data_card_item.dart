@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -13,25 +14,22 @@ class ItemCardUserData extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Card(
       color: KdefaultColor,
-      elevation: 8,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: height * 0.01,
-          horizontal: width * 0.02,
+          vertical: 4.h,
+          horizontal: 10.w,
         ),
         child: SizedBox(
-          height: height * 0.044,
+          height: 40.h,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 icon,
-                size: width * 0.09,
+                size: 30.w,
                 color: Colors.white,
               ),
               const VerticalDivider(
@@ -43,7 +41,7 @@ class ItemCardUserData extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
-                  fontSize: width * 0.05,
+                  fontSize: 19.sp,
                 ),
               ),
             ],

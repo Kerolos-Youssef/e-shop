@@ -1,5 +1,6 @@
 import 'package:e_commerce/models/onboarding_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingItem extends StatelessWidget {
   final OnBoardingModel model;
@@ -8,8 +9,6 @@ class OnBoardingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -17,24 +16,24 @@ class OnBoardingItem extends StatelessWidget {
           model.title,
           style: TextStyle(
             fontWeight: FontWeight.w700,
-            fontSize: width * 0.072,
+            fontSize: 28.sp,
           ),
         ),
         SizedBox(
-          height: height * 0.01,
+          height: 10.h,
         ),
         Expanded(
           child: Image.asset(model.image),
         ),
         SizedBox(
-          height: height * 0.03,
+          height: 3.h,
         ),
         Text(
           model.body,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: width * 0.045,
+            fontSize: 18.sp,
           ),
         ),
       ],

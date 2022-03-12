@@ -6,6 +6,7 @@ import 'package:e_commerce/shared/components/custom_text_field.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
@@ -15,9 +16,6 @@ class UpdateProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {
         if (state is AppGetUserDataSuccessState) {
@@ -28,7 +26,7 @@ class UpdateProfileScreen extends StatelessWidget {
             timeInSecForIosWeb: 3,
             backgroundColor: Colors.green,
             textColor: Colors.white,
-            fontSize: 16.0,
+            fontSize: 16.sp,
           );
           Navigator.of(context).pop();
         }
@@ -39,14 +37,14 @@ class UpdateProfileScreen extends StatelessWidget {
             title: Text(
               'Edit Profile',
               style: TextStyle(
-                fontSize: width * 0.07,
+                fontSize: 26.sp,
               ),
             ),
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: width * 0.035,
-              vertical: height * 0.01,
+              horizontal: 14.w,
+              vertical: 10.h,
             ),
             child: SingleChildScrollView(
               child: Center(
@@ -64,16 +62,16 @@ class UpdateProfileScreen extends StatelessWidget {
                             backgroundImage: NetworkImage(
                               loginModel!.data!.image,
                             ),
-                            radius: width * 0.18,
+                            radius: 70.r,
                           ),
                           IconButton(
                             onPressed: () {},
                             icon: CircleAvatar(
-                              radius: width * 0.08,
+                              radius: 10.r,
                               backgroundColor: Colors.white,
                               child: Icon(
                                 Icons.camera_alt,
-                                size: width * 0.07,
+                                size: 25.w,
                               ),
                             ),
                           ),
@@ -81,7 +79,7 @@ class UpdateProfileScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.02,
+                      height: 15.h,
                     ),
                     Form(
                       key: formKey,
@@ -91,7 +89,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           Text(
                             'Name',
                             style: TextStyle(
-                              fontSize: width * 0.055,
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -112,7 +110,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           Text(
                             'E-mail',
                             style: TextStyle(
-                              fontSize: width * 0.055,
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -138,7 +136,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           Text(
                             'Phone',
                             style: TextStyle(
-                              fontSize: width * 0.055,
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -160,7 +158,7 @@ class UpdateProfileScreen extends StatelessWidget {
                             validationMode: AutovalidateMode.onUserInteraction,
                           ),
                           SizedBox(
-                            height: height * 0.13,
+                            height: 120.h,
                           ),
                           CustomElevatedButton(
                             onPressed: () {
@@ -181,13 +179,13 @@ class UpdateProfileScreen extends StatelessWidget {
                               'Save',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: width * 0.06,
+                                fontSize: 26.sp,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 2.2,
                               ),
                             ),
                             color: KdefaultColor,
-                            borderRadius: width * 0.07,
+                            borderRadius: 25.r,
                           ),
                         ],
                       ),

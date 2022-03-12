@@ -1,16 +1,14 @@
 import 'package:e_commerce/models/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryItemBuilder extends StatelessWidget {
-  double width;
-  double height;
   List<DataModel> data;
-  CategoryItemBuilder(
-      {required this.width, required this.height, required this.data});
+  CategoryItemBuilder({required this.data});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height * 0.25,
+      height: 130.h,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -21,15 +19,15 @@ class CategoryItemBuilder extends StatelessWidget {
               image: NetworkImage(
                 data[index].image,
               ),
-              height: height * 0.25,
-              width: width * 0.35,
+              height: 150.h,
+              width: 125.w,
             ),
             Container(
-              width: width * 0.35,
+              width: 125.w,
               color: Colors.black.withOpacity(0.6),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.012,
+                  horizontal: 5.w,
                 ),
                 child: Text(
                   data[index].name,
@@ -37,7 +35,7 @@ class CategoryItemBuilder extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     overflow: TextOverflow.ellipsis,
-                    fontSize: width * 0.043,
+                    fontSize: 15.sp,
                   ),
                 ),
               ),
@@ -45,7 +43,7 @@ class CategoryItemBuilder extends StatelessWidget {
           ],
         ),
         separatorBuilder: (context, index) => SizedBox(
-          width: width * 0.02,
+          width: 9.w,
         ),
         itemCount: data.length,
       ),

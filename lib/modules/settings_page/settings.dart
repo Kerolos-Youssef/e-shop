@@ -7,6 +7,7 @@ import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -14,34 +15,31 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
       builder: (context, state) {
         return AppCubit.get(context).userData != null
             ? Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.032,
-                  vertical: height * 0.03,
+                  horizontal: 20.w,
+                  vertical: 35.h,
                 ),
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                           AppCubit.get(context).userData!.data!.image,
                         ),
-                        radius: width * 0.23,
+                        radius: 75.r,
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: 14.h,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: width * 0.25,
+                          horizontal: 90.w,
                         ),
                         child: CustomElevatedButton(
                           onPressed: () {
@@ -58,7 +56,7 @@ class SettingsPage extends StatelessWidget {
                               Text(
                                 'Edit Profile',
                                 style: TextStyle(
-                                  fontSize: width * 0.045,
+                                  fontSize: 20.sp,
                                   color: Colors.white,
                                 ),
                               ),
@@ -70,11 +68,11 @@ class SettingsPage extends StatelessWidget {
                             ],
                           ),
                           color: KdefaultColor,
-                          borderRadius: width * 0.08,
+                          borderRadius: 25.r,
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.06,
+                        height: 60.h,
                       ),
                       ItemCardUserData(
                         icon: Icons.person,
@@ -97,7 +95,7 @@ class SettingsPage extends StatelessWidget {
                           'Sign Out',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: width * 0.06,
+                            fontSize: 24.sp,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2.2,
                           ),
@@ -110,7 +108,7 @@ class SettingsPage extends StatelessWidget {
               )
             : SpinKitRipple(
                 color: KdefaultColor,
-                size: 75,
+                size: 75.w,
               );
       },
     );

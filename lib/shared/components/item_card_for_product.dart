@@ -1,6 +1,7 @@
 import 'package:e_commerce/models/home_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 
@@ -18,16 +19,14 @@ class ProductItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Card(
       elevation: 8,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(width * 0.03),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: width * 0.022,
+          horizontal: 5.w,
         ),
         child: Column(
           children: [
@@ -38,28 +37,26 @@ class ProductItemCard extends StatelessWidget {
                   image: NetworkImage(
                     model.image,
                   ),
-                  width: width * 0.5,
-                  height: height * 0.35,
+                  width: 190.w,
+                  height: 160.h,
                 ),
                 if (model.discount != 0)
                   Container(
-                    padding: EdgeInsetsDirectional.only(
-                      start: width * 0.015,
-                      end: width * 0.015,
-                      top: height * 0.001,
-                      bottom: height * 0.001,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8.w,
+                      vertical: 1.h,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.red,
                       borderRadius: BorderRadiusDirectional.only(
-                        bottomEnd: Radius.circular(width * 0.03),
-                        topEnd: Radius.circular(width * 0.03),
+                        bottomEnd: Radius.circular(12.r),
+                        topEnd: Radius.circular(12.r),
                       ),
                     ),
                     child: Text(
                       'DISCOUNT',
                       style: TextStyle(
-                        fontSize: width * 0.03,
+                        fontSize: 12.sp,
                         color: Colors.white,
                       ),
                     ),
@@ -67,14 +64,14 @@ class ProductItemCard extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: height * 0.003,
+              height: 12.h,
             ),
             Text(
               model.name,
               maxLines: 2,
               style: TextStyle(
                 overflow: TextOverflow.ellipsis,
-                fontSize: width * 0.037,
+                fontSize: 14.sp,
                 height: 1.15,
               ),
             ),
@@ -86,18 +83,18 @@ class ProductItemCard extends StatelessWidget {
                     style: TextStyle(
                       decoration: TextDecoration.lineThrough,
                       color: Colors.grey[700],
-                      fontSize: width * 0.043,
+                      fontSize: 16.sp,
                     ),
                   ),
                 if (model.discount != 0)
                   SizedBox(
-                    width: width * 0.03,
+                    width: 10.w,
                   ),
                 Text(
                   model.price.round().toString(),
                   style: TextStyle(
                     color: KdefaultColor,
-                    fontSize: width * 0.043,
+                    fontSize: 18.sp,
                   ),
                 ),
                 const Spacer(),

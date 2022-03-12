@@ -5,14 +5,13 @@ import 'package:e_commerce/modules/search/search_screen.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -21,7 +20,7 @@ class HomeLayout extends StatelessWidget {
               title: Text(
                 'E-Shop',
                 style: TextStyle(
-                  fontSize: width * 0.068,
+                  fontSize: 28.sp,
                   letterSpacing: 1.5,
                 ),
               ),
@@ -41,7 +40,7 @@ class HomeLayout extends StatelessWidget {
               ],
             ),
             bottomNavigationBar: ConvexAppBar(
-              height: height * 0.077,
+              height: 60.h,
               backgroundColor: KdefaultColor,
               elevation: 4,
               activeColor: KdefaultColor,

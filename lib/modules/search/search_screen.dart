@@ -6,15 +6,13 @@ import 'package:e_commerce/shared/components/custom_text_field.dart';
 import 'package:e_commerce/shared/components/search_item_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);
   var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return BlocProvider(
       create: (context) => SearchCubit(),
       child: BlocConsumer<SearchCubit, SearchStates>(
@@ -24,8 +22,8 @@ class SearchScreen extends StatelessWidget {
             appBar: AppBar(),
             body: Padding(
               padding: EdgeInsets.symmetric(
-                vertical: height * 0.02,
-                horizontal: width * 0.03,
+                vertical: 15.h,
+                horizontal: 10.w,
               ),
               child: Form(
                 key: formKey,
@@ -48,9 +46,6 @@ class SearchScreen extends StatelessWidget {
                         }
                       },
                     ),
-                    // SizedBox(
-                    //   height: height * 0.01,
-                    // ),
                     if (state is SearchLoadingState)
                       const LinearProgressIndicator(),
                     if (state is SearchSuccessState)
@@ -77,7 +72,7 @@ class SearchScreen extends StatelessWidget {
                                 : null,
                           ),
                           separatorBuilder: (context, index) => SizedBox(
-                            height: height * 0.02,
+                            height: 12.h,
                           ),
                           itemCount: SearchCubit.get(context)
                               .searchModel!

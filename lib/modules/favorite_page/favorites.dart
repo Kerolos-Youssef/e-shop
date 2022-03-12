@@ -4,6 +4,7 @@ import 'package:e_commerce/shared/components/favorite_item_card.dart';
 import 'package:e_commerce/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class FavoritesPage extends StatelessWidget {
@@ -11,8 +12,6 @@ class FavoritesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     AppCubit.get(context).getFavorites();
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
@@ -21,14 +20,14 @@ class FavoritesPage extends StatelessWidget {
             ? Center(
                 child: SpinKitPumpingHeart(
                   color: KdefaultColor,
-                  size: 50,
+                  size: 50.r,
                 ),
               )
             : ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.03,
-                  vertical: height * 0.025,
+                  horizontal: 14.w,
+                  vertical: 20.h,
                 ),
                 itemBuilder: (context, index) => FavoriteItemCard(
                   model: AppCubit.get(context)
@@ -64,7 +63,7 @@ class FavoritesPage extends StatelessWidget {
                   },
                 ),
                 separatorBuilder: (context, index) => SizedBox(
-                  height: height * 0.02,
+                  height: 12.h,
                 ),
                 itemCount: AppCubit.get(context)
                     .favoritesModel!
